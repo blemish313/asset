@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Base64 Images Viewer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+    img {
+      max-width: 300px;
+      margin: 10px 0;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>Base64 Images from GitHub</h2>
+  <div id="image-container">Loading...</div>
+
+  <script>
+    fetch("path-url.com")
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("image-container");
+        container.innerHTML = ""; // Clear "Loading..."
+
+        Object.entries(data).forEach(([key, base64]) => {
+          const img = document.createElement("img");
+          img.src = base64;
+          img.alt = key;
+          container.appendChild(img);
+        });
+      })
+      .catch(err => {
+        document.getElementById("image-container").innerText = "Failed to load images.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
