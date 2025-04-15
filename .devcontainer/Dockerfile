@@ -10,3 +10,6 @@ RUN apt update && apt install -y \
     python3 \
     python3-pip \
     build-essential
+
+# Add this line so the SSH feature works properly with non-root
+ARG USERNAME=vscode
