@@ -8,5 +8,7 @@
       "version": "latest"
     }
   },
+  "forwardPorts": [22],
+  "remoteUser": "vscode",
   "postCreateCommand": "apt update && apt install -y build-essential"
 }
