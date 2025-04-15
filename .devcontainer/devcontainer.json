@@ -1,0 +1,8 @@
+{
+  "name": "Ubuntu 24 Codespace",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {},
+  "postCreateCommand": "apt update && apt install -y build-essential"
+}
